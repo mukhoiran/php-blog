@@ -1,20 +1,18 @@
 <?php
+require_once "core/init.php";
 require_once "view/header.php";
+
+$articles = show();
 ?>
 
-<div class="each_article">
-  <h3>Blog title</h3>
-  <p>blog content</p>
-  <p class="time">12:00 AM</p>
-  <p class="tag">Tag : Free</p>
-</div>
-
-<div class="each_article">
-  <h3>Blog title</h3>
-  <p>blog content</p>
-  <p class="time">12:00 AM</p>
-  <p class="tag">Tag : Free</p>
-</div>
+<?php while($row = mysqli_fetch_assoc($articles)): ?>
+  <div class="each_article">
+    <h3><?=$row['title']?></h3>
+    <p><?=$row['content']?></p>
+    <p class="time"><?=$row['time']?></p>
+    <p class="tag">Tag : <?=$row['tag']?></p>
+  </div>
+<?php endwhile ?>
 
 <?php
 require_once "view/footer.php";
