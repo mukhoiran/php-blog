@@ -26,6 +26,11 @@ function edit_data($title, $content, $tag, $id){
   return run($query);
 }
 
+function delete_data($id){
+  $query = "DELETE FROM blog WHERE id = $id";
+  return run($query);
+}
+
 function run($query){
   global $link;
 
@@ -37,4 +42,6 @@ function excerp($string){
   $string = substr($string, 0, 10);
   return $string."...";
 }
+
+
 ?>
