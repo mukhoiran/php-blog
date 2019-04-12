@@ -32,10 +32,23 @@ h1{
   margin-right: 10px;
 }
 
-#footer{
-  margin-top: 30px;
-}
-
 #error{
   color: red;
+}
+
+#title_single{
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#content_single{
+  margin: 10px 0 15px 0;
+}
+
+#tag_single{
+  font-size:12px;
+}
+
+#footer{
+  margin-top: 30px;
 }

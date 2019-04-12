@@ -7,8 +7,8 @@ $articles = show();
 
 <?php while($row = mysqli_fetch_assoc($articles)): ?>
   <div class="each_article">
-    <h3><?=$row['title']?></h3>
-    <p><?=$row['content']?></p>
+    <h3> <a href="single.php?id=<?=$row['id']?>"><?=$row['title']?></a></h3>
+    <p><?=excerp($row['content'])?></p>
     <p class="time"><?=$row['time']?></p>
     <p class="tag">Tag : <?=$row['tag']?></p>
     <a href="edit.php?id=<?=$row['id']?>">Edit</a>

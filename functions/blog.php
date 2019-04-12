@@ -32,4 +32,9 @@ function run($query){
   if(mysqli_query($link, $query)) return true;
   else return false;
 }
+
+function excerp($string){
+  $string = substr($string, 0, 10);
+  return $string."...";
+}
 ?>
