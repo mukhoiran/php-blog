@@ -4,16 +4,14 @@ function show(){
   global $link;
 
   $query = "SELECT * FROM blog";
-  $result = mysqli_query($link, $query) or die('Failed to show data');
-  return $result;
+  return result($query);
 }
 
 function show_per_id($id){
   global $link;
 
   $query = "SELECT * FROM blog WHERE id = $id";
-  $result = mysqli_query($link, $query) or die('Failed to show data');
-  return $result;
+  return result($query);
 }
 
 function add_data($title, $content, $tag){
@@ -29,6 +27,19 @@ function edit_data($title, $content, $tag, $id){
 function delete_data($id){
   $query = "DELETE FROM blog WHERE id = $id";
   return run($query);
+}
+
+function search_result($search){
+  global $link;
+
+  $query = "SELECT * FROM blog WHERE title LIKE '%$search%'";
+  return result($query);
+}
+
+function result($query){
+  global $link;
+  $result = mysqli_query($link, $query) or die('Failed to show data');
+  return $result;
 }
 
 function run($query){

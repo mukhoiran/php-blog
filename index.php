@@ -3,7 +3,15 @@ require_once "core/init.php";
 require_once "view/header.php";
 
 $articles = show();
+
+if(isset($_GET['search'])){
+  $articles = search_result($_GET['search']);
+}
 ?>
+
+<form class="" action="" method="get">
+  <input type="search" name="search" placeholder="Search title"><br><br>
+</form>
 
 <?php while($row = mysqli_fetch_assoc($articles)): ?>
   <div class="each_article">
