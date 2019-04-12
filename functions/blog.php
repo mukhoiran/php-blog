@@ -15,6 +15,10 @@ function show_per_id($id){
 }
 
 function add_data($title, $content, $tag){
+  $title = escape($title);
+  $content = escape($content);
+  $tag = escape($content);
+
   $query = "INSERT INTO blog(title, content, tag) VALUES ('$title', '$content', '$tag')";
   return run($query);
 }
@@ -47,6 +51,11 @@ function run($query){
 
   if(mysqli_query($link, $query)) return true;
   else return false;
+}
+
+function escape($data){
+  global $link;
+  return mysqli_real_escape_string($link, $data);
 }
 
 function excerp($string){
