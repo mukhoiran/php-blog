@@ -11,6 +11,7 @@ $articles = show();
     <p><?=$row['content']?></p>
     <p class="time"><?=$row['time']?></p>
     <p class="tag">Tag : <?=$row['tag']?></p>
+    <a href="edit.php?id=<?=$row['id']?>">Edit</a>
   </div>
 <?php endwhile ?>
 
