@@ -8,3 +8,8 @@
   <body>
 
     <h1>The Simple Blogs</h1>
+
+    <div id="menu">
+      <a href="index.php">Home</a>
+      <a href="add.php">Add Article</a>
+    </div>

@@ -23,6 +23,19 @@ h1{
   font-size: 11px;
 }
 
+#menu {
+  margin:10px  0;
+}
+
+#menu a{
+  color: #000;
+  margin-right: 10px;
+}
+
 #footer{
   margin-top: 30px;
+}
+
+#error{
+  color: red;
 }
