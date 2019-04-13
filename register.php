@@ -12,11 +12,15 @@ if(isset($_POST['submit'])){
   $pass = $_POST['password'];
 
   if(!empty(trim($user)) && !empty(trim($pass))){
-    if(check_data($user, $pass)){
-      $_SESSION['user'] = $user;
-      header('Location: index.php');
+    if(register_check($user)){
+      if(register_data($user, $pass)){
+        $_SESSION['user'] = $user;
+        header('Location: index.php');
+      }else{
+        $error = 'Error happen when Register';
+      }
     }else{
-      $error = 'Error happen when Login';
+      $error = 'Username already exist';
     }
   }else{
     $error = 'Username and password cannot Empty!';
@@ -36,7 +40,7 @@ require_once "view/header.php";
 
   <div id="error"><?=$error?></div>
 
-  <input type="submit" name="submit" value="Login">
+  <input type="submit" name="submit" value="Register">
 </form>
 
 <?php
