@@ -1,9 +1,13 @@
 <?php
 require_once "core/init.php";
 
-$login = false;
+$admin = $login = false;
+
 if(isset($_SESSION['user'])){
   $login = true;
+  if(check_role($_SESSION['user']) == 1){
+    $admin = true;
+  }
 }
 
 $articles = show();
@@ -28,8 +32,11 @@ require_once "view/header.php";
 
     <?php if($login): ?>
       <a href="edit.php?id=<?=$row['id']?>">Edit</a>
+    <?php endif ?>
+
+    <?php if($admin): ?>
       <a href="delete.php?id=<?=$row['id']?>">Delete</a>
-  <?php endif ?>
+    <?php endif ?>
 
   </div>
 <?php endwhile ?>

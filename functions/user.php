@@ -12,4 +12,18 @@ function check_data($user, $pass){
   }
 }
 
+function check_role($user){
+  global $link;
+  $user = escape($user);
+
+  $query = "SELECT role FROM users WHERE username = '$user'";
+  if($result = mysqli_query($link, $query)){
+    while($row = mysqli_fetch_assoc($result)){
+      $role = $row['role'];
+    }
+
+    return $role;
+  }
+}
+
 ?>
