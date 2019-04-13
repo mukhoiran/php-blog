@@ -1,9 +1,27 @@
 <?php
 
-function show(){
+function show_count(){
   global $link;
 
   $query = "SELECT * FROM blog";
+  $result = mysqli_query($link, $query);
+  $total = mysqli_num_rows($result);
+  return $total;
+}
+
+function perPage(){
+  return $perPage = 3;
+}
+
+function show(){
+  global $link;
+  // =========pagination==================
+  $perPage = perPage();
+  $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+  $start = ($page > 1) ? ($page * $perPage) - $perPage : 0;
+  // =========end pagination==================
+
+  $query = "SELECT * FROM blog LIMIT $start, $perPage";
   return result($query);
 }
 

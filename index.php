@@ -11,6 +11,10 @@ if(isset($_SESSION['user'])){
 }
 
 $articles = show();
+$total = show_count();
+$perPage =  perPage();
+
+$pages = ceil($total/$perPage);
 
 if(isset($_GET['search'])){
   $articles = search_result($_GET['search']);
@@ -37,9 +41,14 @@ require_once "view/header.php";
     <?php if($admin): ?>
       <a href="delete.php?id=<?=$row['id']?>">Delete</a>
     <?php endif ?>
-
   </div>
 <?php endwhile ?>
+
+<div class="">
+  <?php for($i=1; $i<=$pages; $i++){ ?>
+    <a href="?page=<?=$i?>"><?=$i?></a>
+  <?php } ?>
+</div>
 
 <?php
 require_once "view/footer.php";
