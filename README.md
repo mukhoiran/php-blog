@@ -1,2 +1,2 @@
 # php-blog
-Documentation simple blog with PHP 
+Simple blog with PHP 
